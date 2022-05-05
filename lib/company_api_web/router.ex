@@ -48,7 +48,7 @@ defmodule CompanyApiWeb.Router do
   # Note that preview only shows emails that were sent by the same
   # node running the Phoenix server.
   if Mix.env() == :dev do
-    forward "/send_mails", Bamboo.EmailPreviewPlug
+    forward "/sent_mails", Bamboo.EmailPreviewPlug
     scope "/dev" do
       pipe_through :browser
 
