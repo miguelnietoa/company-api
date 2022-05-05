@@ -22,7 +22,7 @@ defmodule CompanyApiWeb.UserControllerTest do
   describe "tries to create and render" do
     test "user with valid data", %{conn: conn} do
       response =
-        post(conn, user_path(conn, :create), user: @valid_data)
+        post(conn, Routes.user_path(conn, :create), user: @valid_data)
         |> json_response(201)
 
       assert Repo.get_by(User, name: "Jim")
@@ -31,7 +31,7 @@ defmodule CompanyApiWeb.UserControllerTest do
 
     test "user with invalid data", %{conn: conn} do
       response =
-        post(conn, user_path(conn, :create), user: %{})
+        post(conn, Routes.user_path(conn, :create), user: %{})
         |> json_response(422)
 
       assert response["errors"] != %{}
