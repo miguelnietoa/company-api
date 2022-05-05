@@ -14,6 +14,16 @@ defmodule CompanyApiWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+    plug Guardian.Plug.Pipeline,
+      module: CompanyApi.Guardian,
+      error_handler: CompanyApi.GuardianErrorHandler
+
+    plug Guardian.Plug.VerifyHeader, realm: "Bearer"
+    plug Guardian.Plug.EnsureAuthenticated
+    plug Guardian.Plug.LoadResource, ensure: true
+  end
+
   scope "/", CompanyApiWeb do
     pipe_through :browser
 
@@ -49,6 +59,7 @@ defmodule CompanyApiWeb.Router do
   # node running the Phoenix server.
   if Mix.env() == :dev do
     forward "/sent_mails", Bamboo.EmailPreviewPlug
+
     scope "/dev" do
       pipe_through :browser
 

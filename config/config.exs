@@ -50,6 +50,11 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :company_api, CompanyApi.Guardian,
+  issuer: "CompanyApi",
+  secret_key: "QDG1lCBdCdjwF49UniOpbxgUINhdyvQDcFQUQam+65O4f9DgWRe09BYMEEDU1i9X",
+  verify_issuer: true
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
