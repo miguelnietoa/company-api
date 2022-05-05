@@ -1,6 +1,9 @@
 defmodule CompanyApiWeb.UserControllerTest do
   use CompanyApiWeb.ConnCase
+  use Bamboo.Test
   alias CompanyApiWeb.User
+  alias CompanyApiWeb.Email
+  alias CompanyApi.Repo
 
   @valid_data %{name: "Jim", subname: "Doe", email: "doe@gmail.com", job: "CEO"}
   @user %{name: "John", subname: "Doe", email: "doe@gmail.com", job: "engineer"}
