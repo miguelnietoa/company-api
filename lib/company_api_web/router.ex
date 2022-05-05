@@ -21,9 +21,11 @@ defmodule CompanyApiWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", CompanyApiWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", CompanyApiWeb do
+    pipe_through :api
+
+    resources "/users", UserController, only: [:index, :create]
+  end
 
   # Enables LiveDashboard only for development
   #
