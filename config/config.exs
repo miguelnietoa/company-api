@@ -24,7 +24,11 @@ config :company_api, CompanyApiWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :company_api, CompanyApi.Mailer, adapter: Swoosh.Adapters.Local
+# config :company_api, CompanyApi.Mailer, adapter: Swoosh.Adapters.Local
+
+# Bamboo
+config :company_api, CompanyApi.Mailer,
+  adapter: Bamboo.LocalAdapter
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false

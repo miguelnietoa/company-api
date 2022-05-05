@@ -21,7 +21,11 @@ config :company_api, CompanyApiWeb.Endpoint,
   server: false
 
 # In test we don't send emails.
-config :company_api, CompanyApi.Mailer, adapter: Swoosh.Adapters.Test
+# config :company_api, CompanyApi.Mailer, adapter: Swoosh.Adapters.Test
+
+# Bamboo
+config :company_api, CompanyApi.Mailer,
+  adapter: Bamboo.TestAdapter
 
 # Print only warnings and errors during test
 config :logger, level: :warn
