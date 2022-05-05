@@ -9,6 +9,7 @@ defmodule CompanyApiWeb.User do
     field :email, :string
     field :password, :string
     field :job, :string
+    timestamps()
   end
 
   def changeset(changeset, params \\ %{}) do
