@@ -15,9 +15,10 @@ defmodule CompanyApi.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: CompanyApi.PubSub},
       # Start the Endpoint (http/https)
-      CompanyApiWeb.Endpoint
+      CompanyApiWeb.Endpoint,
       # Start a worker by calling: CompanyApi.Worker.start_link(arg)
       # {CompanyApi.Worker, arg}
+      {CompanyApi.ChannelSessions, [%{}]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
