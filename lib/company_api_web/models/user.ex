@@ -10,6 +10,11 @@ defmodule CompanyApiWeb.User do
     field :email, :string
     field :password, :string
     field :job, :string
+
+    has_many :sender_conversations, Conversation, foreign_key: :sender_id
+    has_many :recipient_conversations, Conversation, foreign_key: :recipient_id
+    has_many :messages, Message, foreign_key: :sender_id
+
     timestamps()
   end
 
@@ -22,7 +27,7 @@ defmodule CompanyApiWeb.User do
 
   def generate_password do
     :crypto.strong_rand_bytes(@pass_length)
-    |> Base.encode64
+    |> Base.encode64()
     |> binary_part(0, @pass_length)
   end
 
