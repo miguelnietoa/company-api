@@ -27,8 +27,7 @@ config :company_api, CompanyApiWeb.Endpoint,
 # config :company_api, CompanyApi.Mailer, adapter: Swoosh.Adapters.Local
 
 # Bamboo
-config :company_api, CompanyApi.Mailer,
-  adapter: Bamboo.LocalAdapter
+config :company_api, CompanyApi.Mailer, adapter: Bamboo.LocalAdapter
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false

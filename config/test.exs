@@ -24,8 +24,7 @@ config :company_api, CompanyApiWeb.Endpoint,
 # config :company_api, CompanyApi.Mailer, adapter: Swoosh.Adapters.Test
 
 # Bamboo
-config :company_api, CompanyApi.Mailer,
-  adapter: Bamboo.TestAdapter
+config :company_api, CompanyApi.Mailer, adapter: Bamboo.TestAdapter
 
 # Print only warnings and errors during test
 config :logger, level: :warn
