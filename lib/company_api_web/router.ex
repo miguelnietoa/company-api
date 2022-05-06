@@ -35,6 +35,7 @@ defmodule CompanyApiWeb.Router do
     pipe_through :api
 
     resources "/users", UserController, only: [:index, :create]
+    post "/login", SessionController, :create
   end
 
   # Enables LiveDashboard only for development

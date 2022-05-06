@@ -1,5 +1,6 @@
 defmodule CompanyApiWeb.User do
   use CompanyApiWeb, :model
+  alias CompanyApi.Repo
 
   @pass_length 10
 
@@ -23,5 +24,12 @@ defmodule CompanyApiWeb.User do
     :crypto.strong_rand_bytes(@pass_length)
     |> Base.encode64
     |> binary_part(0, @pass_length)
+  end
+
+  def check_registration(params) do
+    case Repo.get_by(__MODULE__, params) do
+      user when user != nil -> {:ok, user}
+      nil -> {:error, "No user with these credentials"}
+    end
   end
 end
