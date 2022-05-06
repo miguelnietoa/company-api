@@ -38,6 +38,16 @@ defmodule CompanyApiWeb.Router do
     post "/login", SessionController, :create
   end
 
+  scope "/api", CompanyApiWeb do
+    pipe_through [:api, :auth]
+
+    delete "/logout", SessionController, :delete
+    post "/users/upload", UserController, :upload
+    # get "/conversations", ConversationController, :index
+    # post "/conversations", ConversationController, :create
+    # get "/messages", MessageController, :index
+  end
+
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
